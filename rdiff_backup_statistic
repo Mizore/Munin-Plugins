@@ -84,23 +84,21 @@ sub RdiffStatisticConfig
   my($filePath) = @_;
   print "graph_title rdiff-backup ".$filePath." Statistic\n";
   print "graph_scale yes\n";
-  print "graph_category backup\n";
+  print "graph_category rdiff\n";
   print "graph_args --base 1000\n";
   print "DaysSinceBackup.label Days since last Backup\n";
-  print "NewFiles.label added Files\n";
-  print "DeletedFiles.label deleted Files\n";
-  print "ChangedFiles.label changed Files\n";
-  print "IncrementFiles.label incremented Files\n";
+  print "NewFiles.label Added Files\n";
+  print "DeletedFiles.label Deleted Files\n";
+  print "ChangedFiles.label Changed Files\n";
+  print "IncrementFiles.label Incremented Files\n";
   print "Errors.label Errors occured\n";
   print "Errors.critical :0\n";
 }
 
 my $progname;
 my $path;
-$path = $0;
 
-$path =~ s/.*rdiff_backup_statistic//;
-$path =~ s/_/\//g;
+$path = $ENV{dir};
 
 if(not defined ($ARGV[0]))
 {
